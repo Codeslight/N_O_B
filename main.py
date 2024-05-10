@@ -22,15 +22,13 @@ async def heh(ctx, count_heh = 5):
 
 @bot.command()
 async def f_k(ctx):
-    x=0
     if ctx.message.attachments:
         for dosya in ctx.message.attachments:
-            await dosya.save(f"./ Süleyman{x}.png")
-            await ctx.send(b.t_f(f" Süleyman{x}.png"))
-            x+=1
+            await dosya.save(dosya.filename)
+            await ctx.send(b.t_f(dosya.filename))
             
 
     else:
         await ctx.send("Bir dosya yüklemedin.")
 
-bot.run("")
+bot.run()
